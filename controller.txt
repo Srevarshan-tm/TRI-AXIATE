@@ -1,57 +1,68 @@
-1. Introduction
+Sure! I’ve arranged your text into a **clean, properly formatted document** suitable for a report. I’ve added headings, spacing, and bullet points to make it more readable.
 
-The controller is the human–machine interface (HMI) for operating a 3-DOF robotic arm equipped with a gripper. Its primary function is to provide manual wireless control for precise and safe manipulation of objects. The robotic arm consists of:
+---
 
-Two servo motors for arm movement (up/down and forward/backward).
+# **Controller Documentation – 3-DOF Robotic Arm with Gripper**
 
-One servo motor for gripper actuation (claw open/close).
+---
 
-One stepper motor for rotating the base of the arm.
+## 1. **Introduction**
 
-The controller allows the operator to command the arm intuitively using two joysticks and one potentiometer, with all signals processed and transmitted wirelessly using the NRF24L01 module.
+The controller is the **human–machine interface (HMI)** for operating a 3-DOF robotic arm equipped with a gripper. Its primary function is to provide **manual wireless control** for precise and safe manipulation of objects.
 
-This design ensures compactness, simplicity, and precision while providing flexibility for future upgrades, such as integration with the MPU6050 sensor for automated balance and stability.
+The robotic arm consists of:
 
-2. Hardware Components on Controller
-Component	Quantity	Description
-Joysticks (with built-in press button)	2	Provides X-Y axis control for servo motors and stepper motor; button used for toggling servo control.
-Potentiometer	1	Provides analog input for controlling the gripper servo angle.
-NRF24L01 (+PA+LNA)	1	Wireless communication module to transmit controller signals to the arm.
-Arduino Pro Mini	1	Main controller board that reads inputs, processes data, and controls wireless transmission.
-AMS1117 (3.3V regulator)	1	Supplies stable 3.3V power to NRF24L01.
+* **Two servo motors** for arm movement (up/down and forward/backward).
+* **One servo motor** for gripper actuation (claw open/close).
+* **One stepper motor** for rotating the base of the arm.
 
-Notes on Design:
+The controller allows the operator to command the arm intuitively using **two joysticks** and **one potentiometer**, with all signals processed and transmitted wirelessly using the **NRF24L01 module**.
 
-The controller is fully wireless, enabling remote operation without physical constraints.
+This design ensures **compactness, simplicity, and precision** while providing flexibility for future upgrades, such as integration with the **MPU6050 sensor** for automated balance and stability.
 
-The potentiometer allows precise control of the gripper to securely hold objects of varying sizes.
+---
 
-The built-in joystick buttons reduce the need for additional hardware switches, simplifying the design.
+## 2. **Hardware Components on Controller**
 
-3. Control Mapping
+| Component                              | Quantity | Description                                                                                           |
+| -------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------- |
+| Joysticks (with built-in press button) | 2        | Provides X-Y axis control for servo motors and stepper motor; button used for toggling servo control. |
+| Potentiometer                          | 1        | Provides analog input for controlling the gripper servo angle.                                        |
+| NRF24L01 (+PA+LNA)                     | 1        | Wireless communication module to transmit controller signals to the arm.                              |
+| Arduino Pro Mini                       | 1        | Main controller board that reads inputs, processes data, and controls wireless transmission.          |
+| AMS1117 (3.3V regulator)               | 1        | Supplies stable 3.3V power to NRF24L01.                                                               |
+
+**Notes on Design:**
+
+* The controller is fully wireless, enabling **remote operation** without physical constraints.
+* The **potentiometer** allows precise control of the gripper to securely hold objects of varying sizes.
+* The **built-in joystick buttons** reduce the need for additional hardware switches, simplifying the design.
+
+---
+
+## 3. **Control Mapping**
 
 The following section explains how each input on the controller corresponds to an actuator on the robotic arm:
 
-3.1 Joystick 1
+### 3.1 **Joystick 1**
 
-Vertical axis: Controls Servo 1 (arm up/down).
+* **Vertical axis:** Controls **Servo 1** (arm up/down).
+* **Horizontal axis:** Controls **Servo 2** (arm forward/backward).
+* **Built-in Button:** Toggles control of the vertical axis between **Servo 1** and **Servo 2**.
 
-Horizontal axis: Controls Servo 2 (arm forward/backward).
+### 3.2 **Joystick 2**
 
-Built-in Button: Toggles control of the vertical axis between Servo 1 and Servo 2.
+* **Vertical/Horizontal axes:** Controls **Stepper Motor** for base rotation.
+* Allows the operator to rotate the **entire arm assembly** to the desired orientation.
 
-3.2 Joystick 2
+### 3.3 **Potentiometer**
 
-Vertical/Horizontal axes: Controls Stepper Motor for base rotation.
+* Controls **Servo 3 (gripper/claw)**.
+* Operator can adjust the **grip angle** to securely hold or release a box.
+* Provides **continuous analog control** for precise positioning of the gripper.
 
-Allows the operator to rotate the entire arm assembly to the desired orientation.
+---
 
-3.3 Potentiometer
+If you want, I can also **add a “Logical Flow of Operation” and a table mapping Inputs → Actuators → Functions** so this documentation looks complete and report-ready.
 
-Controls Servo 3 (gripper/claw).
-
-Operator can adjust the grip angle to securely hold or release a box.
-
-Provides continuous analog control for precise positioning of the gripper.
-
-
+Do you want me to do that next?
